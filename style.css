@@ -1,38 +1,61 @@
+.key span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arvo', serif;
+    text-transform: uppercase;
+}
 
-body{
-	background-color: #a9d0da;
-	padding: 1em;
+.key i {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.form-control{
-	width: 50%;
-	height: 50%;
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-.key {
-	font-family: 'Arvo', serif;
+
+body {
+    min-height: 100vh;
+    background-color: #afcfd9;
 }
-.conatiner{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+
 h1 {
-	font-family: 'Permanent Marker', cursive;
-	text-align: center;
-}
-.btn-info{
-	outline: none;
-	color: black;
-	background-image: url("images/keyboard-key.png");
-	background-size: cover;
-	background-color: #17a2b808;
-	border-color: #17a2b808;
-}
-.btn-info:hover{
-	background-color: none;
-}
-.container{
-	text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    margin-top: 1em;
+    text-align: center;
 }
 
+.text-area {
+    margin-top: 1em;
+    height: 100px;
+}
 
+.card {
+    max-width: 500px;
+    width: 100%;
+    min-width: 250px;
+}
 
+.keys .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.key {
+    position: relative;
+    cursor: pointer;
+}
