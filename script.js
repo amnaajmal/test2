@@ -1,42 +1,42 @@
-let keyboardKeys = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const alphabets = [
+    'a', 'b', 'c', 'd', 'e', 'f',
+    'g', 'h', 'i', 'j', 'k', 'l',
+    'm', 'n', 'o', 'p', 'q', 'r',
+    's', 't', 'u', 'v', 'w', 'x',
+    'y', 'z'
+];
 
-function initialize() {
-    let keyboardEl = document.querySelector('.card-body');
-
-    for (let i = 0; i < keyboardKeys.length; i++) {
-        keyboardEl.innerHTML += `
-            <div class="key" onclick="showAlphabets('${keyboardKeys[i]}')">
-                <p>${keyboardKeys[i]}</p>
-            </div>`;
+function init() {
+    const keysEl = document.querySelector(".keys .card-body");
+    for (let i = 0 ; i < alphabets.length; i++) {
+        keysEl.innerHTML += `
+        <a class="key" onclick="keyPress('${alphabets[i]}')">
+            <img height="50" src="images/keyboard-key.png" alt="">
+            <span>${alphabets[i]}</span>
+        </a> 
+    `
     }
-
-    keyboardEl.innerHTML += `
-        <div class="space-key" onclick="spaceBar()">
-            <p>SPACE</p>
-        </div>
-        <div class="send-key key" onclick="sendMessage()">
-            <p>
-                <i class="fas fa-arrow-circle-right"></i>
-            </p>
-        </div>
+    keysEl.innerHTML += `
+    <a class="key" onclick="keyPress(' ')">
+        <img height="50" src="images/space-bar-key.png" alt="">
+        <span>Space</span>
+    </a>   
     `;
-
-    document.body.addEventListener('keypress', function (event) {
-        if (event.keyCode >= 65 || event.keyCode <= 90) {
-            document.querySelector('input').value += String.fromCharCode(event.keyCode);
-        }
-    });
+    keysEl.innerHTML += `
+    <a class="key" onclick="send()">
+        <img height="50" src="images/keyboard-key.png" alt="">
+        <span><i class="fa fa-arrow-alt-circle-right"></i></span>
+    </a>   
+    `;
 }
 
-function showAlphabets(locale) {
-    document.querySelector('input').value += locale.toLowerCase();
+function keyPress(key) {
+    const textAreaEl = document.querySelector(".text-area .card-body");
+    textAreaEl.innerHTML += key;
 }
 
-function spaceBar() {
-    document.querySelector('input').value += " ";
-}
-
-function sendMessage() {
-    alert("Your Message has been sent");
-    window.location.reload();
+function send() {
+    alert("Your message has been sent!");
+    const textAreaEl = document.querySelector(".text-area .card-body");
+    textAreaEl.innerHTML = '';
 }
